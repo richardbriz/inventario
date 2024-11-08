@@ -1,0 +1,14 @@
+<!-- inventario/templates/inventario/formulario_computadora.html -->
+{% extends 'base.html' %}
+
+{% block title %}{% if object %}Editar Computadora{% else %}Agregar Nueva Computadora{% endif %}{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">{% if object %}Editar Computadora{% else %}Agregar Nueva Computadora{% endif %}</h1>
+<form method="post" class="bg-light p-4 rounded shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">{% if object %}Actualizar{% else %}Guardar{% endif %}</button>
+    <a href="{% url 'lista_computadoras' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

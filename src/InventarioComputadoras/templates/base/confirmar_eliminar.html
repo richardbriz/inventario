@@ -1,0 +1,20 @@
+<!-- inventario/templates/inventario/confirmar_eliminar.html -->
+{% extends 'base.html' %}
+
+{% block title %}Confirmar Eliminación{% endblock %}
+
+{% block content %}
+<div class="alert alert-danger">
+    <h2>¿Estás seguro de que deseas eliminar esta computadora?</h2>
+    <p><strong>Marca:</strong> {{ object.marca }}</p>
+    <p><strong>Modelo:</strong> {{ object.modelo }}</p>
+    <p><strong>Número de Serie:</strong> {{ object.numero_serie }}</p>
+    <p><strong>Fecha de Compra:</strong> {{ object.fecha_compra }}</p>
+    <p><strong>Estado:</strong> {{ object.estado }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+        <a href="{% url 'lista_computadoras' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

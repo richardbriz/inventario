@@ -1,0 +1,58 @@
+<!-- inventario/templates/inventario/imprimir_computadora.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de la Computadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Ocultar botones al imprimir */
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Detalles de la Computadora</h1>
+        <table class="table table-bordered mt-3">
+
+             <tr>
+                <th>Responsable</th>
+                <td>{{ computadora.responsable }}</td>
+            </tr>
+            <tr>
+            <tr>
+                <th>Marca</th>
+                <td>{{ computadora.marca }}</td>
+            </tr>
+            <tr>
+                <th>Modelo</th>
+                <td>{{ computadora.modelo }}</td>
+            </tr>
+            <tr>
+                <th>Número de Serie</th>
+                <td>{{ computadora.numero_serie }}</td>
+            </tr>
+            <tr>
+                <th>Fecha de Compra</th>
+                <td>{{ computadora.fecha_compra }}</td>
+            </tr>
+            <tr>
+                <th>Licencia</th>
+                <td>{{ computadora.licencia }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ computadora.estado }}</td>
+            </tr>
+        </table>
+
+        <!-- Botón de impresión -->
+        <button onclick="window.print();" class="btn btn-primary no-print">Imprimir</button>
+        <a href="{% url 'lista_computadoras' %}" class="btn btn-secondary no-print">Volver al Inventario</a>
+    </div>
+</body>
+</html>
